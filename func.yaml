@@ -1,0 +1,32 @@
+specVersion: 0.34.0
+name: hello-func-node-env
+runtime: node
+registry: quay.io/viraj_1
+image: image-registry.openshift-image-registry.svc:5000/default/hello-func-node-env:latest
+imageDigest: sha256:2f3f36683749ed34acb75c66128ebc72ec6f1eee7dc150602931112393eb78a9
+created: 2022-12-27T07:54:48.356569265+05:30
+invocation:
+  format: http
+build:
+  buildpacks: []
+  builder: s2i
+  buildEnvs:
+  - name: buildEnv
+    value: buildEnvVal
+  - name: buildEnv1
+    value: buildEnvVal1
+run:
+  volumes: []
+  envs:
+  - name: hello
+    value: world
+  - name: env
+    value: envValue
+deploy:
+  namespace: viraj
+  annotations: {}
+  options: {}
+  labels: []
+  healthEndpoints:
+    liveness: /health/liveness
+    readiness: /health/readiness
